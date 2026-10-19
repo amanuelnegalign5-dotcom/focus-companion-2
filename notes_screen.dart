@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart'; import '../../core/app_state.dart';
+class NotesScreen extends StatelessWidget{final AppState state;const NotesScreen({super.key,required this.state});
+  @override Widget build(BuildContext context)=>Column(children:[Padding(padding:const EdgeInsets.all(12),child:TextField(decoration:const InputDecoration(prefixIcon:Icon(Icons.search),hintText:'Search notes',border:OutlineInputBorder()),onChanged:(v){state.query=v;state.notifyListeners();})),Expanded(child:state.filteredNotes.isEmpty?const Center(child:Text('No notes yet.')):ListView(children:[for(final n in state.filteredNotes)Card(child:ListTile(leading:Icon(n.favorite?Icons.star:Icons.note),title:Text(n.title.isEmpty?'Untitled':n.title),subtitle:Text(n.body,maxLines:2,overflow:TextOverflow.ellipsis)))])]);}
+}

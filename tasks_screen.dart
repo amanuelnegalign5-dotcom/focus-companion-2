@@ -1,0 +1,5 @@
+import 'package:flutter/material.dart'; import '../../core/app_state.dart'; import '../../core/models.dart';
+class TasksScreen extends StatelessWidget{final AppState state;const TasksScreen({super.key,required this.state});
+ @override Widget build(BuildContext context)=>Scaffold(body:ListView(padding:const EdgeInsets.all(12),children:[for(final t in state.tasks)Card(child:CheckboxListTile(value:t.completed,onChanged:(_)=>state.toggleTask(t),title:Text(t.title),subtitle:Text('Priority: ${t.priority.name}')))]),floatingActionButton:FloatingActionButton(onPressed:()=>add(context),child:const Icon(Icons.add)));
+ void add(BuildContext c){final x=TextEditingController();showDialog(context:c,builder:(_)=>AlertDialog(title:const Text('New task'),content:TextField(controller:x,autofocus:true),actions:[TextButton(onPressed:()=>Navigator.pop(c),child:const Text('Cancel')),FilledButton(onPressed:(){if(x.text.trim().isNotEmpty)state.addTask(x.text.trim(),Priority.medium);Navigator.pop(c);},child:const Text('Add'))]));}
+}

@@ -1,0 +1,3 @@
+import 'package:flutter/material.dart'; import '../../core/app_state.dart';
+class LibraryScreen extends StatelessWidget{final AppState state;const LibraryScreen({super.key,required this.state});@override Widget build(BuildContext c)=>ListView(padding:const EdgeInsets.all(12),children:[const Card(child:ListTile(leading:Icon(Icons.info_outline),title:Text('Local Library'),subtitle:Text('Imported files are tracked locally in this prototype.'))),if(state.library.isEmpty)const Padding(padding:EdgeInsets.all(32),child:Center(child:Text('No files imported yet.'))),for(final f in state.library)Card(child:ListTile(leading:Icon(f.kind=='image'?Icons.image:f.kind=='book'?Icons.menu_book:Icons.description),title:Text(f.name),subtitle:Text('${f.kind} • ${f.size} bytes')))]);}
+}

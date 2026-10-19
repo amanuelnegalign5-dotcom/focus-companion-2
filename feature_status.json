@@ -1,0 +1,13 @@
+{
+  "google_keep_live_sync": "not_implemented",
+  "google_keep_takeout_import": "planned",
+  "local_network_sync": "not_implemented",
+  "manual_encrypted_transfer": "planned",
+  "cloud_storage": "not_implemented",
+  "local_ai": "not_implemented",
+  "screen_time": "platform_restricted_not_implemented",
+  "cross_app_blocking": "platform_restricted_not_implemented",
+  "native_push": "platform_integration_not_implemented",
+  "orthodox_calendar_overlay": "not_implemented",
+  "advanced_rich_text": "not_implemented"
+}
